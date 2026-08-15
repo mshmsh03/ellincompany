@@ -406,3 +406,26 @@ footer .col a:hover{color:#fff;}
 .reveal-delay-1.in{transition-delay:.1s;}
 .reveal-delay-2.in{transition-delay:.2s;}
 .reveal-delay-3.in{transition-delay:.3s;}
+
+/* ---------- UTILITIES (formerly inline styles) ---------- */
+.bg-soft{background:var(--bg-soft);}
+.bg-white{background:#fff;}
+.justify-center{justify-content:center;}
+.center-text{text-align:center;}
+.max-w-sm{max-width:320px;}
+.mt-24{margin-top:24px;}
+.mt-28{margin-top:28px;}
+.mt-32{margin-top:32px;}
+.mt-44{margin-top:44px;}
+.subhead-title{font-size:clamp(24px,3vw,32px);margin-bottom:8px;}
+.subhead-text{color:var(--gray);margin-bottom:20px;font-size:15px;}
+.csr-eyebrow{color:#8fd3ee;}
+
+/* ---------- SECTION BACKGROUND IMAGES (formerly inline styles) ---------- */
+.bg-hospital-ext{background-image:url('../img/hospital_ext.jpg');}
+.bg-hospital-atrium{background-image:url('../img/hospital_atrium.jpg');}
+.bg-hospital-lobby{background-image:url('../img/hospital_lobby.jpg');}
+.bg-water{background-image:url('../img/water.jpg');}
+.bg-sewerage{background-image:url('../img/sewerage.jpg');}
+.bg-complementary{background-image:url('../img/complementary.jpg');}
+.bg-garden{background-image:url('../img/garden.jpg');}
