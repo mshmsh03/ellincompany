@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     header.classList.toggle('scrolled', window.scrollY > 40);
   }
   setHeaderState();
-  window.addEventListener('scroll', setHeaderState);
+  if (!isSubPage) { window.addEventListener('scroll', setHeaderState); }
 
   // mobile nav
   var burger = document.getElementById('burgerBtn');

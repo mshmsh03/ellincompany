@@ -403,9 +403,6 @@ footer .col a:hover{color:#fff;}
 /* ---------- REVEAL ANIM ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
-.reveal-delay-1.in{transition-delay:.1s;}
-.reveal-delay-2.in{transition-delay:.2s;}
-.reveal-delay-3.in{transition-delay:.3s;}
 
 /* ---------- UTILITIES (formerly inline styles) ---------- */
 .bg-soft{background:var(--bg-soft);}

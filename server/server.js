@@ -34,15 +34,12 @@ app.get('/', (req, res) => res.redirect(301, '/en/'));
 // Pages used to live as flat, suffixed files at the site root
 // (e.g. /about-ar.html). They now live under /en, /ar, /ku. Redirect the
 // old URLs so bookmarks and search engine links keep working.
-const LEGACY_LANGS = { '': 'en', '-ar': 'ar', '-ku': 'ku' };
+const LEGACY_SUFFIX_LANG = { undefined: 'en', ar: 'ar', ku: 'ku' };
 
-for (const page of PAGES) {
-  for (const [suffix, lang] of Object.entries(LEGACY_LANGS)) {
-    app.get(`/${page}${suffix}.html`, (req, res) => {
-      res.redirect(301, `/${lang}/${page}.html`);
-    });
-  }
-}
+app.get(new RegExp(`^/(${pagePattern})(?:-(ar|ku))?\\.html$`), (req, res) => {
+  const lang = LEGACY_SUFFIX_LANG[req.params[1]];
+  res.redirect(301, `/${lang}/${req.params[0]}.html`);
+});
 
 app.get(new RegExp(`^/(${langPattern})$`), (req, res) => res.redirect(301, `${req.path}/`));
 app.get(new RegExp(`^/(${langPattern})/$`), (req, res) => renderPage(req.params[0], 'index', res));
