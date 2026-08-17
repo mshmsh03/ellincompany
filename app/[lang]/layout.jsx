@@ -10,6 +10,13 @@ export function generateStaticParams() {
   return LANGS.map((lang) => ({ lang }));
 }
 
+// Any [lang] outside generateStaticParams 404s instead of being rendered.
+// Without this a URL like /about-fr.html matches this segment with
+// lang="about-fr.html", and the page's generateMetadata — which runs before
+// the notFound() guard below — throws on the missing lookup, turning what
+// should be a 404 into a 500.
+export const dynamicParams = false;
+
 export default async function LangLayout({ children, params }) {
   const { lang } = await params;
   if (!LANGS.includes(lang)) notFound();
