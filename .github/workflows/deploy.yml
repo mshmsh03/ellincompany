@@ -19,6 +19,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # No-op while package.json has no "build" script; runs the real build
+      # once the app needs one, so a broken build fails here rather than on
+      # the server after the code has already been synced.
+      - run: npm run build --if-present
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -44,12 +48,36 @@ jobs:
             -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" \
             ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:$APP_DIR/"
 
-      - name: Install deps and restart
+      - name: Install deps, build, and restart
         run: |
           ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" bash -s <<'EOF'
             set -euo pipefail
             cd /www/wwwroot/ellincompany.com
+
             npm install --omit=dev
-            pm2 restart ellin --update-env || PORT=3000 pm2 start server/server.js --name ellin
+            npm run build --if-present
+
+            # Re-register the process instead of `pm2 restart`. `restart` reuses
+            # the command pm2 recorded when the process was first created, so a
+            # deploy that changes how the app starts — or removes the old entry
+            # file — leaves pm2 restarting something that no longer exists. It
+            # still exits 0, which is how a green deploy once left a 502 in
+            # production. Delete + start always uses the current `npm start`.
+            NPM_BIN="$(command -v npm)"
+            pm2 delete ellin 2>/dev/null || true
+            PORT=3000 pm2 start "$NPM_BIN" --name ellin -- start
             pm2 save
+
+            # Fail the job if the app isn't actually serving, rather than
+            # reporting success while the site is down.
+            for i in $(seq 1 15); do
+              if curl -fsS -o /dev/null http://127.0.0.1:3000/en/; then
+                echo "Health check passed on attempt $i"
+                exit 0
+              fi
+              sleep 2
+            done
+            echo "Health check FAILED — nothing serving on port 3000 after 30s"
+            pm2 logs ellin --lines 40 --nostream || true
+            exit 1
           EOF
