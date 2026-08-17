@@ -1,0 +1,26 @@
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="../assets/img/mark_white.png" alt="<%= t.footerLogoAlt %>"><span class="word">ELLIN<small>GENERAL CONTRACTING &amp; TRADING</small></span></div>
+        <p class="max-w-sm"><%= t.tagline %></p>
+      </div>
+      <div class="col">
+        <h5><%= t.footerNavHeading %></h5>
+<%_ PAGES.forEach(function (p) { _%>
+        <a href="<%= p %>.html"><%= t.footerNav[p] %></a>
+<%_ }) _%>
+      </div>
+      <div class="col">
+        <h5><%= t.contactHeading %></h5>
+        <p><%= t.address %></p>
+        <a href="mailto:<%= EMAIL %>"><%= EMAIL %></a>
+        <a href="<%= PHONE_HREF %>"><%= t.phoneDisplay %></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span class="footer-year">2026</span> <%= t.copyright %></span>
+      <span><%= t.cityLine %></span>
+    </div>
+  </div>
+</footer>
