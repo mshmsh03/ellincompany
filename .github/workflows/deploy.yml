@@ -19,6 +19,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm run build
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -44,12 +45,13 @@ jobs:
             -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" \
             ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:$APP_DIR/"
 
-      - name: Install deps and restart
+      - name: Install deps, build, and restart
         run: |
           ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" bash -s <<'EOF'
             set -euo pipefail
             cd /www/wwwroot/ellincompany.com
-            npm install --omit=dev
-            pm2 restart ellin --update-env || PORT=3000 pm2 start server/server.js --name ellin
+            npm install
+            npm run build
+            pm2 restart ellin --update-env || pm2 start npm --name ellin -- start
             pm2 save
           EOF
