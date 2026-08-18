@@ -1,4 +1,3 @@
-import PageShell from '../../../components/PageShell';
 import { buildMetadata } from '../../../lib/metadata';
 import AboutEn from '../_content/about.en';
 import AboutAr from '../_content/about.ar';
@@ -15,8 +14,6 @@ export default async function AboutPage({ params }) {
   const { lang } = await params;
   const Content = CONTENT[lang];
   return (
-    <PageShell lang={lang} page="about">
-      <Content />
-    </PageShell>
+    <Content />
   );
 }

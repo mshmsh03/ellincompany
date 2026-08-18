@@ -1,4 +1,3 @@
-import PageShell from '../../../components/PageShell';
 import { buildMetadata } from '../../../lib/metadata';
 import ContactEn from '../_content/contact.en';
 import ContactAr from '../_content/contact.ar';
@@ -15,8 +14,6 @@ export default async function ContactPage({ params }) {
   const { lang } = await params;
   const Content = CONTENT[lang];
   return (
-    <PageShell lang={lang} page="contact">
-      <Content />
-    </PageShell>
+    <Content />
   );
 }

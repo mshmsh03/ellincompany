@@ -23,7 +23,7 @@ export default function ServicesAr() {
 
       {/* FULL SERVICES GRID */}
       <section className="py-17 md:py-26">
-        <div className="wrap grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal as="div" stagger className="wrap grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <ServiceCard num="01" icon="/assets/icons/ic_construction.png" title="الإنشاءات العامة">
             إنشاء المباني السكنية والتجارية والصناعية، بإدارة مشاريع منظمة وأيدٍ عاملة محلية ماهرة.
           </ServiceCard>
@@ -51,13 +51,13 @@ export default function ServicesAr() {
           <ServiceCard num="09" icon="/assets/icons/ic_trading.png" title="التجارة والتوريد">
             توريد مواد ومعدات بناء عالية الجودة، مع ربط العملاء بأسواق دولية موثوقة.
           </ServiceCard>
-        </div>
+        </Reveal>
       </section>
 
       {/* PROCESS */}
       <section className="bg-surface-soft py-17 md:py-26">
         <div className="wrap grid grid-cols-1 items-start gap-9 md:grid-cols-[0.9fr_1.1fr] md:gap-[60px]">
-          <Reveal as="img" src="/assets/img/sewerage.jpg" alt="أعمال بنية تحتية لشركة إيلين" className="rounded-lg shadow-brand md:sticky md:top-[110px]" />
+          <Reveal as="img" variant="wipe" src="/assets/img/sewerage.jpg" alt="أعمال بنية تحتية لشركة إيلين" className="rounded-lg shadow-brand md:sticky md:top-[110px]" />
           <Reveal as="div">
             <Eyebrow>آلية عملنا</Eyebrow>
             <h2 className="mb-2 text-[clamp(24px,3vw,32px)]">من التخطيط حتى التسليم</h2>

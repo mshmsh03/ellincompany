@@ -40,14 +40,14 @@ export default function ProjectsAr() {
           >
             مشروع استثماري صحي كبير في مدينة السليمانية — أحد أكبر المستشفيات في المدينة وفي العراق، صممته ونفذته شركة إيلين بالكامل. يقع جنوب السليمانية، ويضم جميع أقسام المستشفى المتطور على تسعة طوابق، مع مساحة خضراء تشكل 40٪ من مساحة المشروع، إضافة إلى موقف سيارات تحت الأرض.
           </ProjectFeature>
-          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Reveal as="div" stagger className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <ProjectCard thumb="/assets/img/hospital_atrium.jpg" tag="الأجواء الداخلية" title="الفناء الداخلي والمساحة الخضراء">
               فناء داخلي مضاء طبيعياً، مدمج ضمن المساحة الخضراء في الطابق الأرضي للمستشفى.
             </ProjectCard>
             <ProjectCard thumb="/assets/img/hospital_lobby.jpg" tag="الأجواء الداخلية" title="الردهة الرئيسية ومسارات الحركة">
               تصميم داخلي عصري ومتطور في جميع مسارات الحركة الرئيسية بالمستشفى.
             </ProjectCard>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -55,7 +55,7 @@ export default function ProjectsAr() {
       <section className="bg-surface-soft py-17 md:py-26">
         <div className="wrap">
           <SectionHead eyebrow="المزيد من أعمالنا" title="البنية التحتية والأشغال العامة" align="left" />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Reveal as="div" stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <ProjectCard
               thumb="/assets/img/water.jpg"
               tag="شبكات المياه"
@@ -88,14 +88,14 @@ export default function ProjectsAr() {
             >
               مشروع مساحة خضراء عامة لبلدية السليمانية في حي كانیبان، يشمل نظام ري وأرصفة ومنطقة ألعاب للأطفال.
             </ProjectCard>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* LOCATIONS */}
       <section className="py-17 md:py-26">
         <div className="wrap grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-14">
-          <Reveal as="div">
+          <Reveal as="div" variant="wipe">
             <img src="/assets/img/iraq_map.png" alt="مواقع مشاريع شركة إيلين في العراق" className="max-w-full" />
           </Reveal>
           <Reveal as="div">

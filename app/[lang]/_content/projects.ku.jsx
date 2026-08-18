@@ -40,14 +40,14 @@ export default function ProjectsKu() {
           >
             پرۆژەیەکی گەورەی وەبەرهێنانی تەندروستی لە سلێمانی — یەکێک لە گەورەترین نەخۆشخانەکانی شار و عێراق، کە بە تەواوی لەلایەن کۆمپانیای ئێلینەوە دیزاین و جێبەجێ کراوە. لە باشووری سلێمانی دانراوە، هەموو بەشەکانی نەخۆشخانەیەکی پێشکەوتوو لەسەر 9 نهۆم لەخۆدەگرێت، لەگەڵ ڕووبەرێکی سەوز کە 40٪ی ڕووبەری پرۆژەکە پێکدەهێنێت، سەرەڕای گەراجی ژێرزەوی.
           </ProjectFeature>
-          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Reveal as="div" stagger className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <ProjectCard thumb="/assets/img/hospital_atrium.jpg" tag="ناوەوە" title="حەوشەی ناوەوە و ڕووبەری سەوز">
               حەوشەیەکی ناوەوەی ڕووناکی سروشتی، تێکەڵکراو لەگەڵ ڕووبەری سەوزی نهۆمی سەرەوەی نەخۆشخانەکە.
             </ProjectCard>
             <ProjectCard thumb="/assets/img/hospital_lobby.jpg" tag="ناوەوە" title="لۆبیی سەرەکی و ڕێڕەوەکان">
               دیزاینێکی ناوەوەی پێشکەوتوو و مۆدێرن لە سەرانسەری ڕێڕەوە سەرەکییەکانی نەخۆشخانەکە.
             </ProjectCard>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -55,7 +55,7 @@ export default function ProjectsKu() {
       <section className="bg-surface-soft py-17 md:py-26">
         <div className="wrap">
           <SectionHead eyebrow="زیاتر لە کارەکانمان" title="ژێرخان و کارە گشتییەکان" align="left" />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Reveal as="div" stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <ProjectCard
               thumb="/assets/img/water.jpg"
               tag="تۆڕی ئاو"
@@ -88,14 +88,14 @@ export default function ProjectsKu() {
             >
               پرۆژەیەکی ڕووبەری سەوزی گشتی بۆ شارەوانی سلێمانی لە گەڕەکی کانیبان، لەگەڵ سیستەمی ئاودێری، پیادەڕەو و شوێنی یاری منداڵان.
             </ProjectCard>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* LOCATIONS */}
       <section className="py-17 md:py-26">
         <div className="wrap grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-14">
-          <Reveal as="div">
+          <Reveal as="div" variant="wipe">
             <img src="/assets/img/iraq_map.png" alt="شوێنی پرۆژەکانی کۆمپانیای ئێلین لە عێراق" className="max-w-full" />
           </Reveal>
           <Reveal as="div">

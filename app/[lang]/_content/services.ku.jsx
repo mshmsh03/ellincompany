@@ -23,7 +23,7 @@ export default function ServicesKu() {
 
       {/* FULL SERVICES GRID */}
       <section className="py-17 md:py-26">
-        <div className="wrap grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal as="div" stagger className="wrap grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <ServiceCard num="01" icon="/assets/icons/ic_construction.png" title="بیناسازیی گشتی">
             بیناکردنی خانووی نیشتەجێبوون، بازرگانی و پیشەسازی، بە بەڕێوەبردنی ڕێکخراو و کرێکاری ناوخۆیی شارەزا.
           </ServiceCard>
@@ -51,13 +51,13 @@ export default function ServicesKu() {
           <ServiceCard num="09" icon="/assets/icons/ic_trading.png" title="بازرگانی و دابینکردن">
             دابینکردنی کەرەستە و ئامێری بیناسازیی کوالیتی بەرز، بە بەستنەوەی کڕیاران بە بازاڕی نێودەوڵەتی متمانەپێکراوەوە.
           </ServiceCard>
-        </div>
+        </Reveal>
       </section>
 
       {/* PROCESS */}
       <section className="bg-surface-soft py-17 md:py-26">
         <div className="wrap grid grid-cols-1 items-start gap-9 md:grid-cols-[0.9fr_1.1fr] md:gap-[60px]">
-          <Reveal as="img" src="/assets/img/sewerage.jpg" alt="کاری ژێرخانی کۆمپانیای ئێلین" className="rounded-lg shadow-brand md:sticky md:top-[110px]" />
+          <Reveal as="img" variant="wipe" src="/assets/img/sewerage.jpg" alt="کاری ژێرخانی کۆمپانیای ئێلین" className="rounded-lg shadow-brand md:sticky md:top-[110px]" />
           <Reveal as="div">
             <Eyebrow>پرۆسەی کارمان</Eyebrow>
             <h2 className="mb-2 text-[clamp(24px,3vw,32px)]">لە پلاندانانەوە بۆ ڕادەستکردن</h2>

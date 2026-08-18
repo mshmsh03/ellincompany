@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PAGES, SITE, PHONE_HREF, EMAIL, pagePath } from '../lib/site-data';
 
 export default function Footer({ lang }) {
@@ -22,18 +23,22 @@ export default function Footer({ lang }) {
           <div>
             <h5 className="mb-[18px] text-sm tracking-[.06em] text-white uppercase">{t.footerNavHeading}</h5>
             {PAGES.map((p) => (
-              <a key={p} href={pagePath(lang, p)} className="mb-3 block text-sm hover:text-white">
+              <Link
+                key={p}
+                href={pagePath(lang, p)}
+                className="mb-3 block w-fit text-sm transition-colors hover:text-white"
+              >
                 {t.footerNav[p]}
-              </a>
+              </Link>
             ))}
           </div>
           <div>
             <h5 className="mb-[18px] text-sm tracking-[.06em] text-white uppercase">{t.contactHeading}</h5>
             <p className="mb-3 text-sm">{t.address}</p>
-            <a href={`mailto:${EMAIL}`} className="mb-3 block text-sm hover:text-white">
+            <a href={`mailto:${EMAIL}`} className="mb-3 block w-fit text-sm transition-colors hover:text-white">
               {EMAIL}
             </a>
-            <a href={PHONE_HREF} className="mb-3 block text-sm hover:text-white">
+            <a href={PHONE_HREF} className="mb-3 block w-fit text-sm transition-colors hover:text-white">
               {t.phoneDisplay}
             </a>
           </div>

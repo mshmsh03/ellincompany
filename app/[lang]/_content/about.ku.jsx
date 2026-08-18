@@ -64,7 +64,7 @@ export default function AboutKu() {
       {/* HISTORY TIMELINE */}
       <section className="bg-surface-soft py-17 md:py-26">
         <div className="wrap grid grid-cols-1 items-center gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
-          <Reveal as="img" src="/assets/img/history.jpg" alt="کارەکانی کۆنکریت ڕژاندنی کۆمپانیای ئێلین" className="rounded-lg shadow-brand" />
+          <Reveal as="img" variant="wipe" src="/assets/img/history.jpg" alt="کارەکانی کۆنکریت ڕژاندنی کۆمپانیای ئێلین" className="rounded-lg shadow-brand" />
           <Reveal as="div">
             <Eyebrow>چیرۆکمان</Eyebrow>
             <h2 className="mb-[18px] text-[clamp(24px,3vw,34px)]">19 ساڵ گەشەسەندنی بەردەوام و ئەندازیاری ڕێکخراو.</h2>
@@ -109,7 +109,7 @@ export default function AboutKu() {
       {/* APPROACH */}
       <section className="bg-surface-soft py-17 md:py-26">
         <div className="wrap grid grid-cols-1 items-start gap-9 md:grid-cols-[0.9fr_1.1fr] md:gap-[60px]">
-          <Reveal as="img" src="/assets/img/approach.jpg" alt="کاری شوێنی کۆمپانیای ئێلین" className="rounded-lg shadow-brand md:sticky md:top-[110px]" />
+          <Reveal as="img" variant="wipe" src="/assets/img/approach.jpg" alt="کاری شوێنی کۆمپانیای ئێلین" className="rounded-lg shadow-brand md:sticky md:top-[110px]" />
           <Reveal as="div">
             <Eyebrow>چۆن کار دەکەین</Eyebrow>
             <h2 className="mb-2 text-[clamp(24px,3vw,32px)]">شێوازی کارمان</h2>

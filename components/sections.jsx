@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowRightIcon } from 'lucide-react';
 import { Button } from './ui/button';
 import Reveal from './Reveal';
@@ -17,20 +18,46 @@ export function Eyebrow({ tone = 'brand', className = '', children }) {
   );
 }
 
+// Every subpage opens with this, and it deliberately runs the same entrance as
+// the home hero at a shorter scale: the photograph settles, then the crumb,
+// title, and lede register to it. Because it animates on mount and the router
+// now swaps only the page body, this cascade *is* the page transition — arriving
+// somewhere new looks like that place being set out, not like a document reload.
 export function PageHeader({ bgImage, homeHref, homeLabel, crumb, title, children, tight = false }) {
   return (
     <section
-      className={`relative bg-cover bg-center bg-no-repeat pt-[220px] text-white ${tight ? 'pb-[76px]' : 'pb-[90px]'}`}
-      style={{
-        backgroundImage: `linear-gradient(180deg, rgba(1,42,61,.68) 0%, rgba(1,42,61,.86) 100%), url('${bgImage}')`,
-      }}
+      className={`relative isolate overflow-hidden pt-[220px] text-white ${tight ? 'pb-[76px]' : 'pb-[90px]'}`}
     >
+      {/* The photograph is its own layer so it can settle without dragging the
+          text along with it — and so the scrim is never scaled off its edges. */}
+      <div
+        aria-hidden="true"
+        className="m-settle absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(1,42,61,.68) 0%, rgba(1,42,61,.86) 100%), url('${bgImage}')`,
+        }}
+      />
       <div className="wrap">
-        <div className="mb-4 flex items-center gap-2 text-[13px] font-semibold tracking-[.06em] text-[#a9d4e6]">
-          <a href={homeHref} className="hover:text-white">{homeLabel}</a> / {crumb}
+        <div
+          className="m-register mb-4 flex items-center gap-2 text-[13px] font-semibold tracking-[.06em] text-[#a9d4e6]"
+          style={{ '--m-delay': '90ms', '--m-dur': '520ms' }}
+        >
+          <Link href={homeHref} className="transition-colors hover:text-white">
+            {homeLabel}
+          </Link>{' '}
+          / {crumb}
         </div>
-        <h1 className="max-w-[760px] text-[clamp(32px,4.6vw,52px)] text-white">{title}</h1>
-        {children ? <p className="mt-4 max-w-[560px] text-[16.5px] text-[#cfe3ec]">{children}</p> : null}
+        <h1 className="m-wipe max-w-[760px] text-[clamp(32px,4.6vw,52px)] text-white" style={{ '--m-delay': '170ms' }}>
+          {title}
+        </h1>
+        {children ? (
+          <p
+            className="m-register mt-4 max-w-[560px] text-[16.5px] text-[#cfe3ec]"
+            style={{ '--m-delay': '360ms' }}
+          >
+            {children}
+          </p>
+        ) : null}
       </div>
     </section>
   );
@@ -47,22 +74,29 @@ export function SectionHead({ eyebrow, tone, title, align = 'center', children }
   );
 }
 
+// No longer a Reveal of its own. Nine of these in a grid meant nine independent
+// fades firing at whatever moment each card happened to cross the fold — the
+// grid now reveals as one staggered list, which is what it actually is.
 export function ServiceCard({ num, icon, title, children }) {
   return (
-    <Reveal as="div" className="group rounded-lg border border-hairline bg-white p-8 transition-all hover:-translate-y-1 hover:border-brand hover:shadow-brand-lg">
+    <div className="group rounded-lg border border-hairline bg-white p-8 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-brand hover:shadow-brand-lg">
       {num ? <div className="mb-2.5 text-xs font-extrabold tracking-[.05em] text-hairline">{num}</div> : null}
-      <div className="mb-[22px] flex size-[84px] items-center justify-center rounded-full bg-surface-soft transition-colors group-hover:bg-brand">
-        <img className="size-[50px] transition-[filter] group-hover:brightness-0 group-hover:invert" src={icon} alt="" />
+      <div className="mb-[22px] flex size-[84px] items-center justify-center rounded-full bg-surface-soft transition-colors duration-300 group-hover:bg-brand">
+        <img className="size-[50px] transition-[filter] duration-300 group-hover:brightness-0 group-hover:invert" src={icon} alt="" />
       </div>
       <h4 className="mb-[9px] text-lg">{title}</h4>
       <p className="text-[14.2px] text-ink-soft">{children}</p>
-    </Reveal>
+    </div>
   );
 }
 
 export function FeatureGrid({ children }) {
   return (
-    <Reveal as="div" className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+    <Reveal
+      as="div"
+      stagger
+      className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4"
+    >
       {children}
     </Reveal>
   );
@@ -82,8 +116,13 @@ export function FeatureItem({ icon, title, children }) {
 
 export function ProjectCard({ thumb, tag, title, meta, children }) {
   return (
-    <Reveal as="div" className="overflow-hidden rounded-lg border border-hairline bg-white shadow-brand transition-all hover:-translate-y-1 hover:shadow-brand-lg">
-      <div className="h-[200px] bg-cover bg-center" style={{ backgroundImage: `url('${thumb}')` }} />
+    <div className="group overflow-hidden rounded-lg border border-hairline bg-white shadow-brand transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-brand-lg">
+      {/* The thumbnail eases in a hair on hover — the card lifts, so the image
+          inside it should read as being nearer too, not as a flat panel. */}
+      <div
+        className="h-[200px] bg-cover bg-center transition-transform duration-500 ease-out-quart group-hover:scale-[1.04]"
+        style={{ backgroundImage: `url('${thumb}')` }}
+      />
       <div className="px-7 py-[26px]">
         <div className="mb-[9px] text-[11.5px] font-bold tracking-[.1em] text-brand uppercase">{tag}</div>
         <h4 className="mb-[9px] text-[18.5px]">{title}</h4>
@@ -95,13 +134,20 @@ export function ProjectCard({ thumb, tag, title, meta, children }) {
           </div>
         ) : null}
       </div>
-    </Reveal>
+    </div>
   );
 }
 
+// A full-bleed photograph panel: uncovered by the level line passing over it
+// rather than nudged upward, which is what separates media entrances from text
+// entrances across the site.
 export function ProjectFeature({ image, tag, title, stats, children, action }) {
   return (
-    <Reveal as="div" className="grid grid-cols-1 overflow-hidden rounded-lg shadow-brand-lg md:grid-cols-[1.1fr_0.9fr]">
+    <Reveal
+      as="div"
+      variant="wipe"
+      className="grid grid-cols-1 overflow-hidden rounded-lg shadow-brand-lg md:grid-cols-[1.1fr_0.9fr]"
+    >
       <div className="min-h-[380px] bg-cover bg-center" style={{ backgroundImage: `url('${image}')` }} />
       <div className="flex flex-col justify-center bg-brand-darker p-12 text-white">
         <div className="mb-3 text-[12.5px] font-bold tracking-[.12em] text-[#8fd3ee] uppercase">{tag}</div>
@@ -261,7 +307,7 @@ export function CtaStrip({ title, text, children }) {
 export function CtaButton({ href, variant = 'dark', children }) {
   return (
     <Button asChild variant={variant}>
-      <a href={href}>{children}</a>
+      <Link href={href}>{children}</Link>
     </Button>
   );
 }

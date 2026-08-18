@@ -10,7 +10,10 @@ import { cn } from "@/lib/utils"
 // left as shadcn's generated defaults — unused today, kept as standard UI
 // primitives for future work.
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center gap-2.5 rounded-[3px] border-[1.5px] border-transparent bg-clip-padding text-[14.5px] font-bold tracking-[.02em] whitespace-nowrap transition-all duration-300 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[15px] [&_svg]:transition-transform [&_svg]:duration-300 rtl:[&_svg]:-scale-x-100 hover:[&_svg]:translate-x-[3px] rtl:hover:[&_svg]:-translate-x-[3px]",
+  // Hover is acknowledgement, so it lands in ~180ms; 300ms read as the button
+  // hesitating. The named properties replace transition-all, which was also
+  // animating things like the focus ring into view.
+  "group/button inline-flex shrink-0 items-center justify-center gap-2.5 rounded-[3px] border-[1.5px] border-transparent bg-clip-padding text-[14.5px] font-bold tracking-[.02em] whitespace-nowrap transition-[color,background-color,border-color,box-shadow,transform] duration-[180ms] outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[15px] [&_svg]:transition-transform [&_svg]:duration-[180ms] [&_svg]:ease-out-expo rtl:[&_svg]:-scale-x-100 hover:[&_svg]:translate-x-[3px] rtl:hover:[&_svg]:-translate-x-[3px]",
   {
     variants: {
       variant: {

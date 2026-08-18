@@ -1,4 +1,3 @@
-import PageShell from '../../components/PageShell';
 import { buildMetadata, BASE, OG_IMAGE, pageUrl } from '../../lib/metadata';
 import { SITE, PAGE_META } from '../../lib/site-data';
 import IndexEn from './_content/index.en';
@@ -44,13 +43,13 @@ export default async function HomePage({ params }) {
   const { lang } = await params;
   const Content = CONTENT[lang];
   return (
-    <PageShell lang={lang} page="index">
+    <>
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(lang)) }}
       />
       <Content />
-    </PageShell>
+    </>
   );
 }

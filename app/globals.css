@@ -60,6 +60,20 @@
     --shadow-brand-lg: 0 22px 50px rgba(1, 42, 61, 0.16);
 }
 
+/* ---------- Motion tokens ----------
+   One easing family — exponential deceleration, the curve of something heavy
+   being set down precisely. `static` keeps these emitted so the raw CSS in the
+   motion layer below can reference them by var(). Overriding Tailwind's two
+   transition defaults re-times every existing `transition-*` utility on the
+   site at once: 150ms/ease-in-out (twitchy, symmetrical) becomes 200ms of
+   deceleration. */
+@theme static {
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --default-transition-duration: 200ms;
+    --default-transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -160,7 +174,14 @@
   }
   html {
     @apply font-sans;
-    scroll-behavior: smooth;
+    /* Clears the fixed header when an #anchor is jumped to (e.g. about.html#csr). */
+    scroll-padding-top: 110px;
+  }
+  /* Smooth anchor scrolling is motion — gate it on the visitor's preference. */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
   body {
     @apply text-ink;
@@ -206,7 +227,158 @@
   }
 }
 
-@keyframes scrolldown {
-  0% { top: -100%; }
-  100% { top: 100%; }
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOTION
+
+   One material idea: the datum line. An engineering drawing is set out by
+   striking a reference line first, then registering everything to it. This
+   site's visual grammar is already made of those lines — the eyebrow's 24px
+   rule, the hairline dividers, the stat rail, the timeline spine, the nav
+   underline. So motion here means: a rule is struck, and content registers
+   to it. Nothing floats, drifts, or bounces.
+
+   Everything is gated on html[data-motion="on"], set before first paint by
+   the inline script in app/[lang]/layout.jsx only when JS runs AND the
+   visitor has not asked for reduced motion. No JS, stalled hydration, or
+   prefers-reduced-motion all resolve to the same safe state: the page is
+   fully rendered and legible, with no animation at all.
+
+   Two vars tune every animation below, inheritable so a parent can set them:
+     --m-delay  when it starts
+     --m-dur    how long it runs
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* A rule is struck outward from its anchored edge. */
+@keyframes m-strike {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Content registers to the rule: a short rise into place, never a float. */
+@keyframes m-register {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* The level line passes and the text is there behind it. The end state uses
+   negative insets so descenders, RTL tails, and focus rings are never
+   clipped once the animation has settled. */
+@keyframes m-wipe {
+  from { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(10px); }
+  to   { opacity: 1; clip-path: inset(-45% -30% -20% -30%); transform: none; }
+}
+
+@keyframes m-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* The photograph settles into its frame rather than arriving already stopped. */
+@keyframes m-settle {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1); }
+}
+
+@layer components {
+  /* ---------- On-load choreography ----------
+     For the focal entrance only: the hero, and the page header that echoes it
+     on every subpage. These run on mount, which means they also run on each
+     client-side navigation — the incoming page setting itself out is the page
+     transition. */
+
+  [data-motion='on'] .m-register,
+  [data-motion='on'] .m-wipe,
+  [data-motion='on'] .m-fade,
+  [data-motion='on'] .m-strike,
+  [data-motion='on'] .m-settle {
+    animation-delay: var(--m-delay, 0ms);
+    animation-duration: var(--m-dur, 560ms);
+    animation-timing-function: var(--ease-out-expo);
+    animation-fill-mode: both;
+  }
+
+  [data-motion='on'] .m-register { animation-name: m-register; }
+  [data-motion='on'] .m-fade     { animation-name: m-fade; }
+  [data-motion='on'] .m-wipe     { animation-name: m-wipe; --m-dur: 820ms; }
+  [data-motion='on'] .m-strike   { animation-name: m-strike; transform-origin: left center; }
+  [data-motion='on'] .m-settle {
+    animation-name: m-settle;
+    animation-timing-function: var(--ease-out-quart);
+    --m-dur: 1800ms;
+  }
+
+  /* The eyebrow's 24px rule lives in a ::before, so it gets its own hook.
+     Its label fades in over the same beat, so the pair reads as one gesture:
+     a line drawn, a label set against it. */
+  [data-motion='on'] .m-eyebrow::before {
+    animation: m-strike var(--m-rule-dur, 520ms) var(--ease-out-expo) var(--m-delay, 0ms) both;
+    transform-origin: left center;
+  }
+
+  /* Rules are anchored to the inline start, which flips for Arabic and Kurdish. */
+  [data-motion='on'][dir='rtl'] .m-strike,
+  [data-motion='on'][dir='rtl'] .m-eyebrow::before {
+    transform-origin: right center;
+  }
+
+  /* ---------- Scroll reveals ----------
+     Driven by components/Reveal.jsx, which flips data-reveal to "in" the first
+     time an element crosses into view. The hidden state is scoped to
+     [data-motion='on'] so it can never strand content. */
+
+  [data-motion='on'] [data-reveal]:not([data-reveal='in']),
+  [data-motion='on'] [data-reveal-group]:not([data-reveal-group='in']) > * {
+    opacity: 0;
+  }
+
+  [data-motion='on'] [data-reveal='in'] {
+    animation-delay: var(--m-delay, 0ms);
+    animation-duration: var(--m-dur, 620ms);
+    animation-timing-function: var(--ease-out-quart);
+    animation-fill-mode: both;
+  }
+
+  [data-motion='on'] [data-reveal='in'][data-variant='register'] { animation-name: m-register; }
+  [data-motion='on'] [data-reveal='in'][data-variant='fade']     { animation-name: m-fade; }
+  [data-motion='on'] [data-reveal='in'][data-variant='wipe'] {
+    animation-name: m-wipe;
+    animation-timing-function: var(--ease-out-expo);
+    --m-dur: 900ms;
+  }
+
+  /* A grid of cards genuinely is a list, so it may arrive as one. The cascade
+     is capped at four steps — past that every remaining sibling shares the
+     last delay, so a 12-card grid still finishes in 300ms rather than a
+     second and a half of drip. */
+  [data-motion='on'] [data-reveal-group='in'] > * {
+    animation: m-register var(--m-dur, 620ms) var(--ease-out-quart) both;
+    animation-delay: calc(var(--m-delay, 0ms) + 300ms);
+  }
+  [data-motion='on'] [data-reveal-group='in'] > *:nth-child(1) { animation-delay: calc(var(--m-delay, 0ms) + 0ms); }
+  [data-motion='on'] [data-reveal-group='in'] > *:nth-child(2) { animation-delay: calc(var(--m-delay, 0ms) + 75ms); }
+  [data-motion='on'] [data-reveal-group='in'] > *:nth-child(3) { animation-delay: calc(var(--m-delay, 0ms) + 150ms); }
+  [data-motion='on'] [data-reveal-group='in'] > *:nth-child(4) { animation-delay: calc(var(--m-delay, 0ms) + 225ms); }
+
+  /* ---------- The scroll cue ----------
+     The only looping animation on the site. It is opt-in via [data-motion],
+     so a visitor who asked for reduced motion gets the static rule and no
+     perpetual movement. The travelling highlight is a transform now rather
+     than an animated `top`, which kept it off the layout path. */
+  .m-scroll-cue::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 100%;
+    background: #fff;
+    transform: translateY(-100%);
+  }
+  [data-motion='on'] .m-scroll-cue::after {
+    animation: m-scroll-cue 1.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+}
+
+@keyframes m-scroll-cue {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(100%); }
 }

@@ -40,14 +40,14 @@ export default function ProjectsEn() {
           >
             A major healthcare investment project in Sulaymaniyah — one of the largest hospitals in the city and in Iraq, designed and executed entirely by Ellin Company. Located south of Sulaymaniyah, it houses all departments of an advanced hospital across 9 floors, with a 40% landscaped area complemented by an underground garage.
           </ProjectFeature>
-          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Reveal as="div" stagger className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <ProjectCard thumb="/assets/img/hospital_atrium.jpg" tag="Interior" title="Hospital Atrium & Landscape">
               Naturally lit interior courtyard integrated within the hospital&apos;s landscaped ground floor.
             </ProjectCard>
             <ProjectCard thumb="/assets/img/hospital_lobby.jpg" tag="Interior" title="Main Lobby & Circulation">
               Advanced modern interior design across the hospital&apos;s primary circulation spaces.
             </ProjectCard>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -55,7 +55,7 @@ export default function ProjectsEn() {
       <section className="bg-surface-soft py-17 md:py-26">
         <div className="wrap">
           <SectionHead eyebrow="More of Our Work" title="Infrastructure & Public Works" align="left" />
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Reveal as="div" stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <ProjectCard
               thumb="/assets/img/water.jpg"
               tag="Water Networks"
@@ -88,14 +88,14 @@ export default function ProjectsEn() {
             >
               A public green space project for Sulaymaniyah Municipality in the Kaniba neighborhood, with irrigation, sidewalks, and a children&apos;s play area.
             </ProjectCard>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* LOCATIONS */}
       <section className="py-17 md:py-26">
         <div className="wrap grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-14">
-          <Reveal as="div">
+          <Reveal as="div" variant="wipe">
             <img src="/assets/img/iraq_map.png" alt="Ellin Company project locations across Iraq" className="max-w-full" />
           </Reveal>
           <Reveal as="div">
