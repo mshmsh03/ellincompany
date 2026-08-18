@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { LANGS, SITE } from '../../lib/site-data';
 import { BASE } from '../../lib/metadata';
+import '../globals.css';
 
 export const metadata = {
   metadataBase: new URL(BASE),
@@ -32,11 +33,9 @@ export default async function LangLayout({ children, params }) {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="stylesheet" href="/assets/css/styles.css" />
       </head>
       <body>
         {children}
-        <script src="/assets/js/main.js" defer />
       </body>
     </html>
   );

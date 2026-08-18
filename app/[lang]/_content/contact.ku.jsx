@@ -1,95 +1,92 @@
 import ContactForm from '../../../components/ContactForm';
+import { Field, FieldRow } from '../../../components/FormField';
+import {
+  Button,
+  ContactInfo,
+  Eyebrow,
+  FeatureGrid,
+  FeatureItem,
+  HoursCard,
+  PageHeader,
+  Reveal,
+  SectionHead,
+} from '../../../components/sections';
 
 export default function ContactKu() {
   return (
     <>
-<section className="page-header" style={{ '--bgimg': "url('/assets/img/ov3.jpg')", padding: '220px 0 76px' }}>
-  <div className="wrap">
-    <div className="crumb"><a href="/ku/">ماڵەوە</a> / پەیوەندیمان پێوە بکە</div>
-    <h1>با گفتوگۆ لەسەر پرۆژەکەت بکەین.</h1>
-    <p>پەیوەندی بە تیمەکەمانەوە بکە بۆ هاوبەشی، ئۆفەر یان ڕاوێژکاری پرۆژە.</p>
-  </div>
-</section>
+      <PageHeader
+        bgImage="/assets/img/ov3.jpg"
+        homeHref="/ku/"
+        homeLabel="ماڵەوە"
+        crumb="پەیوەندیمان پێوە بکە"
+        title="با گفتوگۆ لەسەر پرۆژەکەت بکەین."
+        tight
+      >
+        پەیوەندی بە تیمەکەمانەوە بکە بۆ هاوبەشی، ئۆفەر یان ڕاوێژکاری پرۆژە.
+      </PageHeader>
 
-{/* CONTACT */}
-<section className="section">
-  <div className="wrap contact-grid">
-    <div className="reveal">
-      <div className="eyebrow">پەیوەندیمان پێوە بکە</div>
-      <h2>دڵخۆشین بۆ بیستنی دەنگت.</h2>
-      <p>ئەگەر پلانت بۆ پرۆژەیەکی بیناسازی هەیە، یان بەدوای هاوبەشیدا دەگەڕێیت، یان ئۆفەرێک پێشکەش دەکەیت، تیمەکەمان بەگشتی لە ماوەی ڕۆژێکی کاردا وەڵام دەداتەوە.</p>
+      {/* CONTACT */}
+      <section className="py-17 md:py-26">
+        <div className="wrap grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
+          <Reveal as="div">
+            <Eyebrow>پەیوەندیمان پێوە بکە</Eyebrow>
+            <h2 className="mb-[18px] text-[clamp(26px,3.4vw,36px)]">دڵخۆشین بۆ بیستنی دەنگت.</h2>
+            <p className="mb-[30px] text-[15.5px] text-ink-soft">
+              ئەگەر پلانت بۆ پرۆژەیەکی بیناسازی هەیە، یان بەدوای هاوبەشیدا دەگەڕێیت، یان ئۆفەرێک پێشکەش دەکەیت، تیمەکەمان بەگشتی لە ماوەی ڕۆژێکی کاردا وەڵام دەداتەوە.
+            </p>
 
-      <div className="cinfo">
-        <div className="ic"><img src="/assets/icons/ic_pin.svg" alt="" /></div>
-        <div><div className="l">بنکەی سەرەکی</div><div className="v">بینای ئازادی، شەقامی پارکی ئازادی، سلێمانی، عێراق</div></div>
-      </div>
-      <div className="cinfo">
-        <div className="ic"><img src="/assets/icons/ic_mail.svg" alt="" /></div>
-        <div><div className="l">ئیمەیل</div><div className="v">info@ellincompany.com</div></div>
-      </div>
-      <div className="cinfo">
-        <div className="ic"><img src="/assets/icons/ic_phone.svg" alt="" /></div>
-        <div><div className="l">مۆبایل</div><div className="v">1677 154 770 964+</div></div>
-      </div>
+            <ContactInfo icon="/assets/icons/ic_pin.svg" label="بنکەی سەرەکی" value="بینای ئازادی، شەقامی پارکی ئازادی، سلێمانی، عێراق" />
+            <ContactInfo icon="/assets/icons/ic_mail.svg" label="ئیمەیل" value="info@ellincompany.com" />
+            <ContactInfo icon="/assets/icons/ic_phone.svg" label="مۆبایل" value="1677 154 770 964+" />
 
-      <div className="hours-card">
-        <h5>کاتی کارکردن</h5>
-        <div className="hours-row"><span>شەممە – چوارشەممە</span><span>8:00 بەیانی – 4:00 ئێوارە</span></div>
-        <div className="hours-row"><span>پێنجشەممە</span><span>8:00 بەیانی – 1:00 نیوەڕۆ</span></div>
-        <div className="hours-row"><span>هەینی</span><span>داخراوە</span></div>
-      </div>
-    </div>
+            <HoursCard
+              title="کاتی کارکردن"
+              rows={[
+                { days: 'شەممە – چوارشەممە', hours: '8:00 بەیانی – 4:00 ئێوارە' },
+                { days: 'پێنجشەممە', hours: '8:00 بەیانی – 1:00 نیوەڕۆ' },
+                { days: 'هەینی', hours: 'داخراوە' },
+              ]}
+            />
+          </Reveal>
 
-    <ContactForm alertMessage="سوپاس بۆ پەیوەندیکردنتان! ئەم فۆرمە هێشتا پەیامەکان وەرناگرێت — تکایە پەیوەندیمان پێوە بکەن لە ڕێگەی info@ellincompany.com یان ژمارە +964 770 154 1677 و تیمەکەمان زوو یارمەتیتان دەدات.">
-      <div className="row">
-        <div className="field"><label htmlFor="cf-name">ناوی تەواو</label><input id="cf-name" type="text" placeholder="ناوت" required /></div>
-        <div className="field"><label htmlFor="cf-email">ئیمەیل</label><input id="cf-email" type="email" placeholder="you@example.com" required /></div>
-      </div>
-      <div className="row">
-        <div className="field"><label htmlFor="cf-phone">ژمارەی مۆبایل</label><input id="cf-phone" type="text" placeholder="964+" /></div>
-        <div className="field"><label htmlFor="cf-subject">بابەت</label><input id="cf-subject" type="text" placeholder="چۆن یارمەتیت بدەین؟" /></div>
-      </div>
-      <div className="field">
-        <label htmlFor="cf-message">پەیام</label>
-        <textarea id="cf-message" placeholder="دەربارەی پرۆژەکەت پێمان بڵێ..." required></textarea>
-      </div>
-      <button type="submit" className="btn btn-primary">پەیام بنێرە</button>
-    </ContactForm>
-  </div>
-</section>
+          <ContactForm alertMessage="سوپاس بۆ پەیوەندیکردنتان! ئەم فۆرمە هێشتا پەیامەکان وەرناگرێت — تکایە پەیوەندیمان پێوە بکەن لە ڕێگەی info@ellincompany.com یان ژمارە +964 770 154 1677 و تیمەکەمان زوو یارمەتیتان دەدات.">
+            <FieldRow>
+              <Field id="cf-name" label="ناوی تەواو" type="text" placeholder="ناوت" required />
+              <Field id="cf-email" label="ئیمەیل" type="email" placeholder="you@example.com" required />
+            </FieldRow>
+            <FieldRow>
+              <Field id="cf-phone" label="ژمارەی مۆبایل" type="text" placeholder="964+" />
+              <Field id="cf-subject" label="بابەت" type="text" placeholder="چۆن یارمەتیت بدەین؟" />
+            </FieldRow>
+            <Field id="cf-message" label="پەیام" textarea placeholder="دەربارەی پرۆژەکەت پێمان بڵێ..." required />
+            <Button type="submit" className="mt-1 w-full">پەیام بنێرە</Button>
+          </ContactForm>
+        </div>
+      </section>
 
-{/* LOCATION STRIP */}
-<section className="section-tight bg-soft">
-  <div className="wrap">
-    <div className="services-head reveal">
-      <div className="eyebrow justify-center">سەردانمان بکە</div>
-      <h2>شوێنی بنکەی سەرەکیمان بدۆزەرەوە</h2>
-      <p>بینای ئازادی، شەقامی پارکی ئازادی، سلێمانی، عێراق</p>
-    </div>
-    <div className="why-grid reveal bg-white">
-      <div className="why-item">
-        <div className="ic"><img src="/assets/icons/ic_pin.svg" alt="" /></div>
-        <h4>بنکەی سەرەکی</h4>
-        <p>بینای ئازادی، شەقامی پارکی ئازادی، سلێمانی، عێراق</p>
-      </div>
-      <div className="why-item">
-        <div className="ic"><img src="/assets/icons/ic_mail.svg" alt="" /></div>
-        <h4>ئیمەیلمان بۆ بنێرە</h4>
-        <p>info@ellincompany.com</p>
-      </div>
-      <div className="why-item">
-        <div className="ic"><img src="/assets/icons/ic_phone.svg" alt="" /></div>
-        <h4>پەیوەندیمان پێوە بکە</h4>
-        <p>1677 154 770 964+</p>
-      </div>
-      <div className="why-item">
-        <div className="ic"><img src="/assets/icons/ic_target_blue.svg" alt="" /></div>
-        <h4>ناوچەی خزمەتگوزاری</h4>
-        <p>عێراق و هەرێمی کوردستان</p>
-      </div>
-    </div>
-  </div>
-</section>
+      {/* LOCATION STRIP */}
+      <section className="bg-surface-soft py-13 md:py-19">
+        <div className="wrap">
+          <SectionHead eyebrow="سەردانمان بکە" title="شوێنی بنکەی سەرەکیمان بدۆزەرەوە">
+            بینای ئازادی، شەقامی پارکی ئازادی، سلێمانی، عێراق
+          </SectionHead>
+          <FeatureGrid>
+            <FeatureItem icon="/assets/icons/ic_pin.svg" title="بنکەی سەرەکی">
+              بینای ئازادی، شەقامی پارکی ئازادی، سلێمانی، عێراق
+            </FeatureItem>
+            <FeatureItem icon="/assets/icons/ic_mail.svg" title="ئیمەیلمان بۆ بنێرە">
+              info@ellincompany.com
+            </FeatureItem>
+            <FeatureItem icon="/assets/icons/ic_phone.svg" title="پەیوەندیمان پێوە بکە">
+              1677 154 770 964+
+            </FeatureItem>
+            <FeatureItem icon="/assets/icons/ic_target_blue.svg" title="ناوچەی خزمەتگوزاری">
+              عێراق و هەرێمی کوردستان
+            </FeatureItem>
+          </FeatureGrid>
+        </div>
+      </section>
     </>
   );
 }

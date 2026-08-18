@@ -4,31 +4,44 @@ export default function Footer({ lang }) {
   const t = SITE[lang];
 
   return (
-    <footer>
+    <footer className="bg-brand-darker py-[70px] pb-7 text-[#a9c6d3]">
       <div className="wrap">
-        <div className="foot-grid">
+        <div className="grid grid-cols-1 gap-9 border-b border-white/10 pb-[46px] sm:grid-cols-[1.5fr_1fr_1fr] sm:gap-12">
           <div>
-            <div className="foot-brand">
-              <img src="/assets/img/mark_white.png" alt={t.footerLogoAlt} />
-              <span className="word">ELLIN<small>GENERAL CONTRACTING &amp; TRADING</small></span>
+            <div className="mb-[18px] flex items-center gap-3">
+              <img className="h-11" src="/assets/img/mark_white.png" alt={t.footerLogoAlt} />
+              <span className="flex flex-col text-[22px] leading-none font-extrabold tracking-[.1em] text-white">
+                ELLIN
+                <small className="mt-1 text-[9.5px] font-semibold tracking-[.14em] text-[#7e9aa8]">
+                  GENERAL CONTRACTING &amp; TRADING
+                </small>
+              </span>
             </div>
             <p className="max-w-sm">{t.tagline}</p>
           </div>
-          <div className="col">
-            <h5>{t.footerNavHeading}</h5>
+          <div>
+            <h5 className="mb-[18px] text-sm tracking-[.06em] text-white uppercase">{t.footerNavHeading}</h5>
             {PAGES.map((p) => (
-              <a key={p} href={pagePath(lang, p)}>{t.footerNav[p]}</a>
+              <a key={p} href={pagePath(lang, p)} className="mb-3 block text-sm hover:text-white">
+                {t.footerNav[p]}
+              </a>
             ))}
           </div>
-          <div className="col">
-            <h5>{t.contactHeading}</h5>
-            <p>{t.address}</p>
-            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-            <a href={PHONE_HREF}>{t.phoneDisplay}</a>
+          <div>
+            <h5 className="mb-[18px] text-sm tracking-[.06em] text-white uppercase">{t.contactHeading}</h5>
+            <p className="mb-3 text-sm">{t.address}</p>
+            <a href={`mailto:${EMAIL}`} className="mb-3 block text-sm hover:text-white">
+              {EMAIL}
+            </a>
+            <a href={PHONE_HREF} className="mb-3 block text-sm hover:text-white">
+              {t.phoneDisplay}
+            </a>
           </div>
         </div>
-        <div className="foot-bottom">
-          <span>© <span className="footer-year">2026</span> {t.copyright}</span>
+        <div className="flex flex-wrap items-center justify-between gap-2.5 pt-6 text-[13px] text-[#7e9aa8]">
+          <span>
+            © <span>{new Date().getFullYear()}</span> {t.copyright}
+          </span>
           <span>{t.cityLine}</span>
         </div>
       </div>

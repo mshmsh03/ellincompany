@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Next 16 auto-writes AGENTS.md/CLAUDE.md on every dev/build run; this repo
+  // doesn't want those generated files.
+  agentRules: false,
+
   // Canonical URLs (set up during the earlier SEO pass) use a trailing
   // slash for the homepage of each language (e.g. /en/). Next.js strips
   // trailing slashes by default, which would otherwise fight the redirect

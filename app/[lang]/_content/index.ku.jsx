@@ -1,170 +1,284 @@
-import ArrowIcon from '../../../components/ArrowIcon';
+import { ArrowRightIcon } from 'lucide-react';
+import { Button } from '../../../components/ui/button';
+import Reveal from '../../../components/Reveal';
 
 export default function IndexKu() {
   return (
     <>
-{/* HERO */}
-<section className="hero" id="home">
-  <div className="hero-inner">
-    <div className="eyebrow">دامەزراوە ساڵی 2006 · سلێمانی، عێراق</div>
-    <h1>ژێرخانی عێراق دروست دەکەین بە <em>کارامەیی ئەندازیاری.</em></h1>
-    <p>کۆمپانیای ئێلین کۆمپانیایەکی عێراقی پلە (1)ـە بۆ پیمانکاری گشتی و بازرگانی، کە پرۆژەی تەندروستی، ئاو، فاضلاب و ژێرخان لە سەرانسەری عێراق و هەرێمی کوردستان جێبەجێ دەکات.</p>
-    <div className="btnrow">
-      <a href="/ku/projects.html" className="btn btn-primary">پرۆژەکانمان ببینە</a>
-      <a href="/ku/contact.html" className="btn btn-ghost">پەیوەندیمان پێوە بکە</a>
-    </div>
-    <div className="hero-stats">
-      <div className="stat"><div className="num">+19</div><div className="lbl">ساڵ ئەزموون</div></div>
-      <div className="stat"><div className="num">پلەی 1</div><div className="lbl">پۆلێنبەندی وەزارەتی پلاندانان</div></div>
-      <div className="stat"><div className="num">+40</div><div className="lbl">پرۆژەی تەواوکراو</div></div>
-      <div className="stat"><div className="num">100%</div><div className="lbl">خاوەندارێتی عێراقی</div></div>
-    </div>
-  </div>
-  <div className="scroll-cue">بۆ خوارەوە بڕۆ<div className="line"></div></div>
-</section>
-
-{/* ABOUT TEASER */}
-<section className="section" id="about">
-  <div className="wrap about-grid">
-    <div className="reveal">
-      <div className="eyebrow">دەربارەی کۆمپانیای ئێلین</div>
-      <h2>کۆمپانیایەکی گەشەسەندوو و فرەلایەن کە بە تەواوی خاوەنداریێتی هاوڵاتیانی عێراقییە.</h2>
-      <p className="lead">کۆمپانیای ئێلین بۆ پیمانکاری گشتی و بازرگانی کۆمپانیایەکی پیمانکاری عێراقی پلە (1)ـە، لە ساڵی 2006 دامەزراوە و بنکەی سەرەکی لە سلێمانی، عێراقە. لە ماوەی نزیکەی دوو دەیەدا، کۆمپانیاکە پرۆژەی بیناسازی و ژێرخانی لە سەرانسەری عێراق و هەرێمی کوردستان جێبەجێ کردووە.</p>
-      <p className="lead">دامەزرێنەران و کادرە سەرەکییەکانی کۆمپانیاکە ئەندازیارانی شارەزان لە بواری جیاواز، کە لە پرۆژەی گەورەی حکومی و تایبەتیدا کار کردووە، و شارەزایی ئەندازیاری فراوانیان هەیە لە ڕووی تەکنیکی، دیزاین، بەڕێوەبردن و جێبەجێکردنەوە.</p>
-      <div className="about-figs">
-        <div className="about-fig"><div className="n">2006</div><div className="l">ساڵی دامەزراندن</div></div>
-        <div className="about-fig"><div className="n">پلەی 1</div><div className="l">تۆمارکراو لای وەزارەتی پلاندانان</div></div>
-      </div>
-      <div className="mt-32">
-        <a href="/ku/about.html" className="btn btn-outline">زیاتر دەربارەمان <ArrowIcon /></a>
-      </div>
-    </div>
-    <div className="about-media reveal">
-      <img src="/assets/img/history.jpg" alt="کارەکانی کۆنکریت ڕژاندنی کۆمپانیای ئێلین" />
-      <div className="float-card">
-        <div className="n">100%</div>
-        <div className="l">خاوەندارێتی و بەڕێوەبردنی عێراقی لە سەرەتاوە</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* WHY CHOOSE US */}
-<section className="section-tight bg-soft">
-  <div className="wrap">
-    <div className="services-head reveal">
-      <div className="eyebrow justify-center">بۆچی ئێلین</div>
-      <h2>بۆچی کڕیارەکان ئێمە هەڵدەبژێرن</h2>
-    </div>
-    <div className="why-grid reveal bg-white">
-      <div className="why-item">
-        <div className="ic"><img src="/assets/icons/ic_flag_dark.svg" alt="" /></div>
-        <h4>سەلامەتی لە پێشدا</h4>
-        <p>ستانداردی توندوتیژی سەلامەتی و کۆنترۆڵی کوالیتی لە هەموو قۆناغەکانی جێبەجێکردندا.</p>
-      </div>
-      <div className="why-item">
-        <div className="ic"><img src="/assets/icons/ic_process_dark.svg" alt="" /></div>
-        <h4>جێبەجێکردنی ڕێکخراو</h4>
-        <p>بەڕێوەبردنی گشتگیری پرۆژە لە پلاندانانەوە تا جێبەجێکردن و ڕادەستکردنی کۆتایی.</p>
-      </div>
-      <div className="why-item">
-        <div className="ic"><img src="/assets/icons/ic_team_dark.svg" alt="" /></div>
-        <h4>شارەزایی ناوخۆیی</h4>
-        <p>کرێکارانی شارەزای ناوخۆیی کە زانیاری قووڵیان هەیە لەبارەی یاسا و ژینگەی ئەندازیاری عێراق.</p>
-      </div>
-      <div className="why-item">
-        <div className="ic"><img src="/assets/icons/ic_target_dark.svg" alt="" /></div>
-        <h4>ستانداردی نێودەوڵەتی</h4>
-        <p>پابەندبوون بە مەرجەکانی گرێبەستی عێراقی، نەتەوە یەکگرتووەکان، ڕێکخراوە ناحکومییەکان و ستانداردی FIDIC لە هەموو پرۆژەیەکدا.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* SERVICES TEASER */}
-<section className="section" id="services">
-  <div className="wrap">
-    <div className="services-head reveal">
-      <div className="eyebrow justify-center">چی پێشکەش دەکەین</div>
-      <h2>خزمەتگوزاریە سەرەکییەکان</h2>
-      <p>کۆمپانیای ئێلین خزمەتگوزاری تەواوکراو پێشکەش دەکات لە بواری بیناسازی، ژێرخان و ئەندازیاریدا — لە سەرانسەری عێراق و هەرێمی کوردستان.</p>
-    </div>
-    <div className="svc-grid">
-      <div className="svc-card reveal"><div className="ic"><img src="/assets/icons/ic_construction.png" alt="" /></div><h4>بیناسازیی گشتی</h4><p>بیناکردنی خانووی نیشتەجێبوون، بازرگانی و پیشەسازی.</p></div>
-      <div className="svc-card reveal"><div className="ic"><img src="/assets/icons/ic_water.png" alt="" /></div><h4>تۆڕی ئاو</h4><p>دانانی هێڵی گواستنەوە، پۆمپخانە و مەخزەنی ئاو.</p></div>
-      <div className="svc-card reveal"><div className="ic"><img src="/assets/icons/ic_sewer.png" alt="" /></div><h4>تۆڕی فاضلاب</h4><p>دروستکردن و چاککردنەوەی سیستەمی فاضلابی شارستانی.</p></div>
-    </div>
-    <div className="center-text mt-44">
-      <a href="/ku/services.html" className="btn btn-primary">هەموو خزمەتگوزارییەکان ببینە <ArrowIcon /></a>
-    </div>
-  </div>
-</section>
-
-{/* VISION / MISSION */}
-<section className="section vm">
-  <div className="wrap vm-grid">
-    <div className="vm-card reveal">
-      <div className="ic"><img src="/assets/icons/ic_target.svg" alt="" /></div>
-      <h3>ئاواتمان</h3>
-      <p>ئێلین هەوڵدەدات ببێتە کۆمپانیایەکی پێشەنگ لە بواری بیناسازی و ئەندازیاری لە عێراق، ناسراو بە باشی کاری کارامە، متمانەپێکراوی و گەشەپێدانی بەردەوام.</p>
-    </div>
-    <div className="vm-card reveal">
-      <div className="ic"><img src="/assets/icons/ic_flag.svg" alt="" /></div>
-      <h3>ئەرکمان</h3>
-      <p>پێشکەشکردنی چارەسەری بیناسازیی سەلامەت و کارا و بەکوالیتی بەرز کە یارمەتی گەشەسەندنی عێراق دەدات، لە ڕێگەی بەڕێوەبردنی پرۆژەی پیشەیی و کرێکاری ناوخۆیی شارەزاوە.</p>
-    </div>
-  </div>
-</section>
-
-{/* FEATURED PROJECT */}
-<section className="section bg-soft" id="projects">
-  <div className="wrap">
-    <div className="services-head reveal">
-      <div className="eyebrow justify-center">کارەکانمان</div>
-      <h2>پرۆژەی سەرەکی</h2>
-      <p>سەیرێک بۆ یەکێک لە گرنگترین دەستکەوتەکانمان لە بواری ژێرخاندا تا ئێستا.</p>
-    </div>
-    <div className="proj-feature reveal">
-      <div className="img-col bg-hospital-ext"></div>
-      <div className="txt-col">
-        <div className="tag">وەبەرهێنانی تەندروستی</div>
-        <h3>نەخۆشخانەی گشتی تایبەتی بەخشین</h3>
-        <p>پرۆژەیەکی گەورەی وەبەرهێنانی تەندروستی لە سلێمانی — یەکێک لە گەورەترین نەخۆشخانەکانی شار، کە بە تەواوی لەلایەن کۆمپانیای ئێلینەوە دیزاین و جێبەجێ کراوە، لەسەر 9 نهۆم بە ڕووبەرێکی سەوز کە 40٪ی ڕووبەری پرۆژەکە پێکدەهێنێت.</p>
-        <div className="proj-stats">
-          <div><div className="n">100 قەرەوێڵە</div><div className="l">توانای وەرگرتن</div></div>
-          <div><div className="n">9,850 م²</div><div className="l">ڕووبەری گشتی</div></div>
-          <div><div className="n">25.5 ملیار د.ع</div><div className="l">بودجەی گشتی</div></div>
+      {/* HERO */}
+      <section
+        id="home"
+        className="relative flex min-h-screen items-center bg-[center_40%] bg-cover bg-no-repeat"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(1,42,61,.5) 0%, rgba(1,42,61,.7) 55%, rgba(1,42,61,.93) 100%), url('/assets/img/hero_infrastructure.jpg')",
+        }}
+      >
+        <div className="wrap w-full pt-[170px] pb-[130px]">
+          <div className="mb-4 inline-flex items-center gap-2.5 text-[12.5px] font-bold tracking-[.15em] text-[#8fd3ee] uppercase before:block before:h-0.5 before:w-6 before:bg-[#8fd3ee] before:content-['']">
+            دامەزراوە ساڵی 2006 · سلێمانی، عێراق
+          </div>
+          <h1 className="mb-6 max-w-[840px] text-[clamp(34px,5.4vw,64px)] leading-[1.07] text-white rtl:leading-[1.45]">
+            ژێرخانی عێراق دروست دەکەین بە <em className="text-[#8fd3ee] not-italic">کارامەیی ئەندازیاری.</em>
+          </h1>
+          <p className="mb-10 max-w-[570px] text-[18.5px] font-normal text-[#dbe9ef]">
+            کۆمپانیای ئێلین کۆمپانیایەکی عێراقی پلە (1)ـە بۆ پیمانکاری گشتی و بازرگانی، کە پرۆژەی تەندروستی، ئاو، فاضلاب و ژێرخان لە سەرانسەری عێراق و هەرێمی کوردستان جێبەجێ دەکات.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Button asChild>
+              <a href="/ku/projects.html">پرۆژەکانمان ببینە <ArrowRightIcon /></a>
+            </Button>
+            <Button asChild variant="heroOutline">
+              <a href="/ku/contact.html">پەیوەندیمان پێوە بکە <ArrowRightIcon /></a>
+            </Button>
+          </div>
+          <div className="mt-[68px] flex flex-wrap border-t border-white/20">
+            <div className="flex-1 border-e border-white/18 px-[22px] pt-[26px] first:ps-0 last:border-e-0 max-[700px]:mb-[18px] max-[700px]:flex-[1_1_50%] max-[700px]:border-e-0 max-[700px]:ps-0">
+              <div className="text-[30px] font-extrabold text-white">+19</div>
+              <div className="mt-1 text-[12.5px] font-semibold tracking-[.08em] text-[#a9c6d3] uppercase">ساڵ ئەزموون</div>
+            </div>
+            <div className="flex-1 border-e border-white/18 px-[22px] pt-[26px] first:ps-0 last:border-e-0 max-[700px]:mb-[18px] max-[700px]:flex-[1_1_50%] max-[700px]:border-e-0 max-[700px]:ps-0">
+              <div className="text-[30px] font-extrabold text-white">پلەی 1</div>
+              <div className="mt-1 text-[12.5px] font-semibold tracking-[.08em] text-[#a9c6d3] uppercase">پۆلێنبەندی وەزارەتی پلاندانان</div>
+            </div>
+            <div className="flex-1 border-e border-white/18 px-[22px] pt-[26px] first:ps-0 last:border-e-0 max-[700px]:mb-[18px] max-[700px]:flex-[1_1_50%] max-[700px]:border-e-0 max-[700px]:ps-0">
+              <div className="text-[30px] font-extrabold text-white">+40</div>
+              <div className="mt-1 text-[12.5px] font-semibold tracking-[.08em] text-[#a9c6d3] uppercase">پرۆژەی تەواوکراو</div>
+            </div>
+            <div className="flex-1 border-e border-white/18 px-[22px] pt-[26px] first:ps-0 last:border-e-0 max-[700px]:mb-[18px] max-[700px]:flex-[1_1_50%] max-[700px]:border-e-0 max-[700px]:ps-0">
+              <div className="text-[30px] font-extrabold text-white">100%</div>
+              <div className="mt-1 text-[12.5px] font-semibold tracking-[.08em] text-[#a9c6d3] uppercase">خاوەندارێتی عێراقی</div>
+            </div>
+          </div>
         </div>
-        <div className="mt-28">
-          <a href="/ku/projects.html" className="btn btn-white">هەموو پرۆژەکان ببینە <ArrowIcon /></a>
+        <div className="absolute bottom-7 left-1/2 -translate-x-1/2 text-center text-[11px] tracking-[.16em] text-[#cfe6ee] uppercase opacity-85 [@media(max-height:840px)]:hidden">
+          بۆ خوارەوە بڕۆ
+          <div className="relative mx-auto mt-2 h-[34px] w-px overflow-hidden bg-[#cfe6ee] after:absolute after:inset-x-0 after:top-[-100%] after:h-full after:w-full after:animate-[scrolldown_1.8s_infinite] after:bg-white" />
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/* CSR TEASER */}
-<section className="section csr" id="csr">
-  <div className="wrap">
-    <div className="csr-inner reveal">
-      <div className="eyebrow csr-eyebrow">بەرپرسیارێتی کۆمەڵایەتی کۆمپانیا</div>
-      <h2>بە بەرپرسیارێتییەوە بنیات دەنێین، بۆ خەڵک و ژینگە.</h2>
-      <p>بەرپرسیارێتی کۆمەڵایەتی بەشێکی سەرەکییە لە کاروباری کۆمپانیای ئێلین. ئێمە پابەندین بە بەردەوامی ژینگەیی، گەشەپێدانی کۆمەڵگا و پەرەپێدانی کرێکاران لە هەموو ئەوەی دروستی دەکەین.</p>
-      <div className="mt-24">
-        <a href="/ku/about.html#csr" className="btn btn-ghost">زیاتر بزانە <ArrowIcon /></a>
-      </div>
-    </div>
-  </div>
-</section>
+      {/* ABOUT TEASER */}
+      <section className="py-17 md:py-26" id="about">
+        <Reveal as="div" className="wrap grid grid-cols-1 items-center gap-9 md:grid-cols-[1fr_0.85fr] md:gap-[68px]">
+          <div>
+            <div className="mb-4 inline-flex items-center gap-2.5 text-[12.5px] font-bold tracking-[.15em] text-brand uppercase before:block before:h-0.5 before:w-6 before:bg-brand before:content-['']">
+              دەربارەی کۆمپانیای ئێلین
+            </div>
+            <h2 className="mb-[22px] text-[clamp(26px,3.4vw,38px)] leading-[1.2] rtl:leading-[1.5]">
+              کۆمپانیایەکی گەشەسەندوو و فرەلایەن کە بە تەواوی خاوەنداریێتی هاوڵاتیانی عێراقییە.
+            </h2>
+            <p className="mb-4 text-[17px] text-ink-soft">
+              کۆمپانیای ئێلین بۆ پیمانکاری گشتی و بازرگانی کۆمپانیایەکی پیمانکاری عێراقی پلە (1)ـە، لە ساڵی 2006 دامەزراوە و بنکەی سەرەکی لە سلێمانی، عێراقە. لە ماوەی نزیکەی دوو دەیەدا، کۆمپانیاکە پرۆژەی بیناسازی و ژێرخانی لە سەرانسەری عێراق و هەرێمی کوردستان جێبەجێ کردووە.
+            </p>
+            <p className="mb-4 text-[17px] text-ink-soft">
+              دامەزرێنەران و کادرە سەرەکییەکانی کۆمپانیاکە ئەندازیارانی شارەزان لە بواری جیاواز، کە لە پرۆژەی گەورەی حکومی و تایبەتیدا کار کردووە، و شارەزایی ئەندازیاری فراوانیان هەیە لە ڕووی تەکنیکی، دیزاین، بەڕێوەبردن و جێبەجێکردنەوە.
+            </p>
+            <div className="mt-7 grid grid-cols-2 gap-4">
+              <div className="rounded-sm border-s-[3px] border-brand bg-surface-soft px-5 py-[18px]">
+                <div className="text-2xl font-extrabold text-brand">2006</div>
+                <div className="mt-0.5 text-[12.5px] text-ink-soft">ساڵی دامەزراندن</div>
+              </div>
+              <div className="rounded-sm border-s-[3px] border-brand bg-surface-soft px-5 py-[18px]">
+                <div className="text-2xl font-extrabold text-brand">پلەی 1</div>
+                <div className="mt-0.5 text-[12.5px] text-ink-soft">تۆمارکراو لای وەزارەتی پلاندانان</div>
+              </div>
+            </div>
+            <div className="mt-8">
+              <Button asChild variant="outline">
+                <a href="/ku/about.html">زیاتر دەربارەمان <ArrowRightIcon /></a>
+              </Button>
+            </div>
+          </div>
+          <div className="relative">
+            <img className="rounded-lg shadow-brand" src="/assets/img/history.jpg" alt="کارەکانی کۆنکریت ڕژاندنی کۆمپانیای ئێلین" />
+            <div className="absolute start-0 bottom-[-20px] max-w-[210px] rounded-[3px] bg-brand px-5 py-4 text-white shadow-[0_14px_30px_rgba(1,42,61,.25)] sm:start-[-26px] sm:bottom-[-26px] sm:px-[26px] sm:py-[22px]">
+              <div className="text-[26px] font-extrabold">100%</div>
+              <div className="mt-0.5 text-xs opacity-85">خاوەندارێتی و بەڕێوەبردنی عێراقی لە سەرەتاوە</div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
 
-{/* CTA */}
-<section className="section-tight cta-strip">
-  <div className="wrap">
-    <h2>با پێکەوە شتێکی بەردەوام بنیات بنێین.</h2>
-    <p>پەیوەندیمان پێوە بکە بۆ گفتوگۆکردن لەسەر پرۆژەی ژێرخان یان بیناسازیی داهاتووت.</p>
-    <a href="/ku/contact.html" className="btn btn-dark">پەیوەندی بە تیمەکەمانەوە بکە</a>
-  </div>
-</section>
+      {/* WHY CHOOSE US */}
+      <section className="bg-surface-soft py-13 md:py-19">
+        <Reveal as="div" className="wrap mb-14 text-center">
+          <div className="mb-4 inline-flex items-center gap-2.5 text-[12.5px] font-bold tracking-[.15em] text-brand uppercase before:block before:h-0.5 before:w-6 before:bg-brand before:content-['']">
+            بۆچی ئێلین
+          </div>
+          <h2 className="text-[clamp(26px,3.4vw,38px)]">بۆچی کڕیارەکان ئێمە هەڵدەبژێرن</h2>
+        </Reveal>
+        <Reveal as="div" className="wrap">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+            <div className="group bg-white px-[30px] py-[38px] transition-colors hover:bg-surface-soft">
+              <div className="mb-5 flex size-[66px] items-center justify-center rounded-full bg-surface-soft transition-colors group-hover:bg-brand">
+                <img className="size-[38px] transition-[filter] group-hover:brightness-0 group-hover:invert" src="/assets/icons/ic_flag_dark.svg" alt="" />
+              </div>
+              <h4 className="mb-2 text-[16.5px]">سەلامەتی لە پێشدا</h4>
+              <p className="text-[13.8px] text-ink-soft">ستانداردی توندوتیژی سەلامەتی و کۆنترۆڵی کوالیتی لە هەموو قۆناغەکانی جێبەجێکردندا.</p>
+            </div>
+            <div className="group bg-white px-[30px] py-[38px] transition-colors hover:bg-surface-soft">
+              <div className="mb-5 flex size-[66px] items-center justify-center rounded-full bg-surface-soft transition-colors group-hover:bg-brand">
+                <img className="size-[38px] transition-[filter] group-hover:brightness-0 group-hover:invert" src="/assets/icons/ic_process_dark.svg" alt="" />
+              </div>
+              <h4 className="mb-2 text-[16.5px]">جێبەجێکردنی ڕێکخراو</h4>
+              <p className="text-[13.8px] text-ink-soft">بەڕێوەبردنی گشتگیری پرۆژە لە پلاندانانەوە تا جێبەجێکردن و ڕادەستکردنی کۆتایی.</p>
+            </div>
+            <div className="group bg-white px-[30px] py-[38px] transition-colors hover:bg-surface-soft">
+              <div className="mb-5 flex size-[66px] items-center justify-center rounded-full bg-surface-soft transition-colors group-hover:bg-brand">
+                <img className="size-[38px] transition-[filter] group-hover:brightness-0 group-hover:invert" src="/assets/icons/ic_team_dark.svg" alt="" />
+              </div>
+              <h4 className="mb-2 text-[16.5px]">شارەزایی ناوخۆیی</h4>
+              <p className="text-[13.8px] text-ink-soft">کرێکارانی شارەزای ناوخۆیی کە زانیاری قووڵیان هەیە لەبارەی یاسا و ژینگەی ئەندازیاری عێراق.</p>
+            </div>
+            <div className="group bg-white px-[30px] py-[38px] transition-colors hover:bg-surface-soft">
+              <div className="mb-5 flex size-[66px] items-center justify-center rounded-full bg-surface-soft transition-colors group-hover:bg-brand">
+                <img className="size-[38px] transition-[filter] group-hover:brightness-0 group-hover:invert" src="/assets/icons/ic_target_dark.svg" alt="" />
+              </div>
+              <h4 className="mb-2 text-[16.5px]">ستانداردی نێودەوڵەتی</h4>
+              <p className="text-[13.8px] text-ink-soft">پابەندبوون بە مەرجەکانی گرێبەستی عێراقی، نەتەوە یەکگرتووەکان، ڕێکخراوە ناحکومییەکان و ستانداردی FIDIC لە هەموو پرۆژەیەکدا.</p>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SERVICES TEASER */}
+      <section className="py-17 md:py-26" id="services">
+        <Reveal as="div" className="wrap mx-auto mb-14 max-w-[660px] text-center">
+          <div className="mb-4 inline-flex items-center gap-2.5 text-[12.5px] font-bold tracking-[.15em] text-brand uppercase before:block before:h-0.5 before:w-6 before:bg-brand before:content-['']">
+            چی پێشکەش دەکەین
+          </div>
+          <h2 className="mb-3.5 text-[clamp(26px,3.4vw,38px)]">خزمەتگوزاریە سەرەکییەکان</h2>
+          <p className="text-base text-ink-soft">
+            کۆمپانیای ئێلین خزمەتگوزاری تەواوکراو پێشکەش دەکات لە بواری بیناسازی، ژێرخان و ئەندازیاریدا — لە سەرانسەری عێراق و هەرێمی کوردستان.
+          </p>
+        </Reveal>
+        <div className="wrap grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal as="div" className="rounded-lg border border-hairline bg-white p-8 transition-all hover:-translate-y-1 hover:border-brand hover:shadow-brand-lg">
+            <div className="mb-[22px] flex size-[84px] items-center justify-center rounded-full bg-surface-soft transition-colors">
+              <img className="size-[50px]" src="/assets/icons/ic_construction.png" alt="" />
+            </div>
+            <h4 className="mb-[9px] text-lg">بیناسازیی گشتی</h4>
+            <p className="text-[14.2px] text-ink-soft">بیناکردنی خانووی نیشتەجێبوون، بازرگانی و پیشەسازی.</p>
+          </Reveal>
+          <Reveal as="div" className="rounded-lg border border-hairline bg-white p-8 transition-all hover:-translate-y-1 hover:border-brand hover:shadow-brand-lg">
+            <div className="mb-[22px] flex size-[84px] items-center justify-center rounded-full bg-surface-soft transition-colors">
+              <img className="size-[50px]" src="/assets/icons/ic_water.png" alt="" />
+            </div>
+            <h4 className="mb-[9px] text-lg">تۆڕی ئاو</h4>
+            <p className="text-[14.2px] text-ink-soft">دانانی هێڵی گواستنەوە، پۆمپخانە و مەخزەنی ئاو.</p>
+          </Reveal>
+          <Reveal as="div" className="rounded-lg border border-hairline bg-white p-8 transition-all hover:-translate-y-1 hover:border-brand hover:shadow-brand-lg">
+            <div className="mb-[22px] flex size-[84px] items-center justify-center rounded-full bg-surface-soft transition-colors">
+              <img className="size-[50px]" src="/assets/icons/ic_sewer.png" alt="" />
+            </div>
+            <h4 className="mb-[9px] text-lg">تۆڕی فاضلاب</h4>
+            <p className="text-[14.2px] text-ink-soft">دروستکردن و چاککردنەوەی سیستەمی فاضلابی شارستانی.</p>
+          </Reveal>
+        </div>
+        <div className="wrap mt-11 text-center">
+          <Button asChild>
+            <a href="/ku/services.html">هەموو خزمەتگوزارییەکان ببینە <ArrowRightIcon /></a>
+          </Button>
+        </div>
+      </section>
+
+      {/* VISION / MISSION */}
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,var(--color-brand)_0%,var(--color-brand-darker)_100%)] py-17 text-white md:py-26">
+        <Reveal as="div" className="wrap grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14">
+          <div>
+            <div className="mb-[22px] flex size-[54px] items-center justify-center rounded-full bg-white/12">
+              <img className="size-[25px]" src="/assets/icons/ic_target.svg" alt="" />
+            </div>
+            <h3 className="mb-3.5 text-2xl text-white">ئاواتمان</h3>
+            <p className="mb-3 text-[15px] text-[#cfe3ec]">
+              ئێلین هەوڵدەدات ببێتە کۆمپانیایەکی پێشەنگ لە بواری بیناسازی و ئەندازیاری لە عێراق، ناسراو بە باشی کاری کارامە، متمانەپێکراوی و گەشەپێدانی بەردەوام.
+            </p>
+          </div>
+          <div>
+            <div className="mb-[22px] flex size-[54px] items-center justify-center rounded-full bg-white/12">
+              <img className="size-[25px]" src="/assets/icons/ic_flag.svg" alt="" />
+            </div>
+            <h3 className="mb-3.5 text-2xl text-white">ئەرکمان</h3>
+            <p className="mb-3 text-[15px] text-[#cfe3ec]">
+              پێشکەشکردنی چارەسەری بیناسازیی سەلامەت و کارا و بەکوالیتی بەرز کە یارمەتی گەشەسەندنی عێراق دەدات، لە ڕێگەی بەڕێوەبردنی پرۆژەی پیشەیی و کرێکاری ناوخۆیی شارەزاوە.
+            </p>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* FEATURED PROJECT */}
+      <section className="bg-surface-soft py-17 md:py-26" id="projects">
+        <Reveal as="div" className="wrap mb-14 text-center">
+          <div className="mb-4 inline-flex items-center gap-2.5 text-[12.5px] font-bold tracking-[.15em] text-brand uppercase before:block before:h-0.5 before:w-6 before:bg-brand before:content-['']">
+            کارەکانمان
+          </div>
+          <h2 className="mb-3.5 text-[clamp(26px,3.4vw,38px)]">پرۆژەی سەرەکی</h2>
+          <p className="text-base text-ink-soft">سەیرێک بۆ یەکێک لە گرنگترین دەستکەوتەکانمان لە بواری ژێرخاندا تا ئێستا.</p>
+        </Reveal>
+        <Reveal as="div" className="wrap">
+          <div className="grid grid-cols-1 overflow-hidden rounded-lg shadow-brand-lg md:grid-cols-[1.1fr_0.9fr]">
+            <div className="min-h-[380px] bg-[url('/assets/img/hospital_ext.jpg')] bg-cover bg-center" />
+            <div className="flex flex-col justify-center bg-brand-darker p-12 text-white">
+              <div className="mb-3 text-[12.5px] font-bold tracking-[.12em] text-[#8fd3ee] uppercase">وەبەرهێنانی تەندروستی</div>
+              <h3 className="mb-4 text-[27px] text-white">نەخۆشخانەی گشتی تایبەتی بەخشین</h3>
+              <p className="mb-[22px] text-[14.5px] text-[#c9dde5]">
+                پرۆژەیەکی گەورەی وەبەرهێنانی تەندروستی لە سلێمانی — یەکێک لە گەورەترین نەخۆشخانەکانی شار، کە بە تەواوی لەلایەن کۆمپانیای ئێلینەوە دیزاین و جێبەجێ کراوە، لەسەر 9 نهۆم بە ڕووبەرێکی سەوز کە 40٪ی ڕووبەری پرۆژەکە پێکدەهێنێت.
+              </p>
+              <div className="flex flex-wrap gap-[22px]">
+                <div className="border-s-2 border-white/30 ps-3">
+                  <div className="text-lg font-extrabold text-white">100 قەرەوێڵە</div>
+                  <div className="text-[11.5px] tracking-[.06em] text-[#a9c6d3] uppercase">توانای وەرگرتن</div>
+                </div>
+                <div className="border-s-2 border-white/30 ps-3">
+                  <div className="text-lg font-extrabold text-white">9,850 م²</div>
+                  <div className="text-[11.5px] tracking-[.06em] text-[#a9c6d3] uppercase">ڕووبەری گشتی</div>
+                </div>
+                <div className="border-s-2 border-white/30 ps-3">
+                  <div className="text-lg font-extrabold text-white">25.5 ملیار د.ع</div>
+                  <div className="text-[11.5px] tracking-[.06em] text-[#a9c6d3] uppercase">بودجەی گشتی</div>
+                </div>
+              </div>
+              <div className="mt-7">
+                <Button asChild variant="white">
+                  <a href="/ku/projects.html">هەموو پرۆژەکان ببینە <ArrowRightIcon /></a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* CSR TEASER */}
+      <section
+        className="relative bg-[linear-gradient(180deg,rgba(1,42,61,.82),rgba(1,42,61,.9)),url('/assets/img/csr.jpg')] bg-cover bg-center py-17 text-white md:py-26"
+        id="csr"
+      >
+        <Reveal as="div" className="wrap max-w-[780px]">
+          <div className="mb-4 inline-flex items-center gap-2.5 text-[12.5px] font-bold tracking-[.15em] text-[#8fd3ee] uppercase before:block before:h-0.5 before:w-6 before:bg-[#8fd3ee] before:content-['']">
+            بەرپرسیارێتی کۆمەڵایەتی کۆمپانیا
+          </div>
+          <h2 className="mb-[18px] text-[clamp(26px,3.4vw,36px)] text-white">بە بەرپرسیارێتییەوە بنیات دەنێین، بۆ خەڵک و ژینگە.</h2>
+          <p className="text-base text-[#d7e6ec]">
+            بەرپرسیارێتی کۆمەڵایەتی بەشێکی سەرەکییە لە کاروباری کۆمپانیای ئێلین. ئێمە پابەندین بە بەردەوامی ژینگەیی، گەشەپێدانی کۆمەڵگا و پەرەپێدانی کرێکاران لە هەموو ئەوەی دروستی دەکەین.
+          </p>
+          <div className="mt-6">
+            <Button asChild variant="heroOutline">
+              <a href="/ku/about.html#csr">زیاتر بزانە <ArrowRightIcon /></a>
+            </Button>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-brand py-13 text-center text-white md:py-19">
+        <div className="wrap">
+          <h2 className="mb-4 text-[clamp(24px,3.2vw,32px)] text-white">با پێکەوە شتێکی بەردەوام بنیات بنێین.</h2>
+          <p className="mb-[30px] text-base text-[#dbeef5]">پەیوەندیمان پێوە بکە بۆ گفتوگۆکردن لەسەر پرۆژەی ژێرخان یان بیناسازیی داهاتووت.</p>
+          <Button asChild variant="dark">
+            <a href="/ku/contact.html">پەیوەندی بە تیمەکەمانەوە بکە</a>
+          </Button>
+        </div>
+      </section>
     </>
   );
 }
