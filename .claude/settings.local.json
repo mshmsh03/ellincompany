@@ -2,11 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(command -v python3)",
-      "Bash(command -v python)",
-      "Bash(python3 -)",
-      "Bash(start \"\" \"c:\\\\Users\\\\mshmsh\\\\Desktop\\\\Ellin Company\\\\Website\\\\index.html\")",
-      "Bash(python3 -c ' *)",
-      "Bash(node -e ' *)"
+      "Bash(command -v python)"
     ]
   }
 }
